@@ -1,0 +1,74 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<h1> VENDOR DETAILS</h1>
+
+
+<div style="overflow-x:auto;" >
+<div class="container-fluid">
+
+   <br><br>
+  
+       <nav class="navbar navbar-light bg-light">
+            <div>
+                   <!-- <i class="fas fa-arrow-alt-circle-left" (click)="goback()" style="font-size:36px;color: #12123b;"></i> -->
+                   
+                   <!-- <input type="submit"  (click)="goback()" value="Go Back" class="btn btn-info"> -->
+            </div>
+           
+             <input [(ngModel)]="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 35%;margin-left:20%;">
+             <button (click)="searchVendor(search)"class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right:30%">Search</button>
+       
+             <button (click)="goBack()"class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right:30%">Logout</button>
+                       <!-- <i class="fa fa-user-plus" (click)="saveStaff()" style="font-size:36px;margin-left: 90%;"></i> -->
+                       <button (click)="addDet()"class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right:30%">Add New</button>
+
+   </nav>
+   <br>
+   <br>
+   
+   <br>  
+<table class="table" border="1">
+  <thead class="thead-dark"><tr >
+       <th >Vendor Id </th>
+       <th>Vendor Name</th>
+       <th>Address</th>
+       <th>Location </th>
+       <th>Service</th>
+       <th >Pin Code </th>
+       <th>Contact Person</th>
+       <th>Department</th>
+       <th>Email</th>
+       <th>Phone</th>
+       <th>Action</th>
+   </tr> </thead>
+   <tbody>
+   <tr class="table-default" *ngFor ="let bo of details| paginate:{itemsPerPage:3,currentPage:p}" >
+       <td>{{bo.vendorId}}</td>
+       <td>{{bo.vendorName}}</td>
+       <td>{{bo.address}}</td>
+       <td>{{bo.location}}</td>
+       <td>{{bo.service}}</td>
+       <td>{{bo.pinCode}}</td>
+       <td>{{bo.contactName}}</td>
+       <td>{{bo.department}}</td>
+       <td>{{bo.email}}</td>
+       <td>{{bo.phone}}</td>
+       <td>     
+            <button (click)="add(bo.vendorId)"class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right:30%">Edit</button>| <button (click)="disableVendor(bo.vendorId)" class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right:30%">Disable</button>
+        
+      </td>
+   </tr></tbody>
+
+</table>
+</div>
+<pagination-controls (pageChange)="p =$event"></pagination-controls> 
+
+</div>

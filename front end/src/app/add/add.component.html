@@ -1,0 +1,115 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+<h1 class="d-flex justify-content-center">ADD VENDOR</h1>
+<nav class="navbar navbar-light bg-light">
+    <i class="fas fa-arrow-alt-circle-left" (click)="goback()"
+        style="font-size:36px;margin-left:20%;color:#12123b "></i>  
+
+        <!-- <button (click)="goback()"class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right:30%">Back</button> -->
+
+</nav>
+<form #form="ngForm" autocomplete="off">
+    <div class="form-group">
+        <label>Vendor Name*</label>
+        <input type="text" [(ngModel)]="add.vendorName" #vname="ngModel" name="vendorName" class="form-control"
+            placeholder="Ventor Name" required>
+        <!-- <div class="validation-error" *ngIf="vendorName.invalid && vendorname.touched" style="color: red">Please match
+            the requested format</div> -->
+
+
+        <br>
+        <label>Address*</label>
+        <input type="text" [(ngModel)]="add.address" #address="ngModel" name="address" class="form-control"
+            placeholder="Address" pattern="[a-zA-Z-]{2,}" required>
+        <!-- <div class="validation-error" *ngIf="address.invalid && address.touched" style="color: red">Please match the
+            requested format</div>  -->
+        <br>
+
+        <label>Location*</label>
+        <!-- <input type="text" [(ngModel)]="add.location" #location="ngModel" name="location" class="form-control"
+            placeholder="Location"> -->
+            <!-- <div class="validation-error" *ngIf="location.invalid && location.touched" style="color: red">Please match the
+                    requested format</div> -->
+
+ 
+        <select class="form-control" class="custom-select" id="vendor-location" name="location" [(ngModel)]="add.location">
+
+            <option value="chennai">chennai</option>
+            <option value="Banglore">banglore</option>
+            <option value="trivandrum">trivandrum</option>
+        </select> 
+        
+        <br>
+
+        <label>Service*</label>
+        <!-- <input type="text" [(ngModel)]="add.service" #service="ngModel" name="service" class="form-control"
+            placeholder="Service" required> -->
+         <!-- <div class="validation-error" *ngIf="service.invalid && service.touched" style="color: red">Please match the
+            requested format</div>  -->
+
+            <select class="form-control" class="custom-select" id="vendor-service" name="service" [(ngModel)]="add.service">
+
+                <option value="soft skill training">soft skill training</option>
+                <option value="technology training">technology training</option>
+                <option value="management training">management training</option>
+                <option value="training facility">training facility</option>
+            </select> 
+        <br>
+
+        <label>Pincode*</label>
+        <input type="text" [(ngModel)]="add.pinCode" #pincode="ngModel" name="pinCode" class="form-control"
+            placeholder="Pincode" pattern="[0-9]{10}" required>
+         <!-- <div class="validation-error" *ngIf="pincode.invalid && pincode.touched" style="color: red">Please match the
+            requested format</div>  -->
+        <br>
+
+       
+        
+
+        <label>Contact Name*</label>
+        <input type="text" [(ngModel)]="add.contactName" #contactname="ngModel" name="contactName" class="form-control"
+            placeholder="Contact Name" pattern="[a-zA-Z-]{2,}" required>
+         <!-- <div class="validation-error" *ngIf="contactname.invalid && contactname.touched" style="color: red">Please match
+            the requested format</div>  -->
+        <br>
+
+        <label>Department*</label>
+        <input type="text" [(ngModel)]="add.department" #department="ngModel" name="department" class="form-control"
+            placeholder="Department" pattern="[a-zA-Z-]{2,}" required>
+        <!-- <div class="validation-error" *ngIf="department.invalid && department.touched" style="color: red">Please match
+            the requested format</div> -->
+        <br>
+
+        <label>Email*</label>
+        <input type="text" [(ngModel)]="add.email" #email="ngModel" name="email" class="form-control"
+            placeholder="Email" required>
+         <!-- <div class="validation-error" *ngIf="email.invalid && email.touched" style="color: red">Please match the
+            requested format</div>  -->
+        <br>
+
+        <label>Phone*</label>
+        <input type="text" [(ngModel)]="add.phone" #phone="ngModel" name="phone" class="form-control"
+            placeholder="Phone" pattern="[0-9]{10}" required>
+         <!-- <div class="validation-error" *ngIf="phone.invalid && phone.touched" style="color: red">Please match the
+            requested format</div>  -->
+        <br>
+
+
+        <br>
+        <p style="margin-left:30%;color:red">* - All fields are mandatory</p>
+        <div class="btn">
+            <button class="btn btn-dark btn-block" (click)="addVendor()" style="float: right;margin-right:50%">SAVE</button>
+
+            </div>
+            
+     </div> 
+     </form>
+
+            <!--input type="button" class="btn btn-success pull-right" (click)="save()" value="SAVE" style="float: right;margin-right:50%"-->
